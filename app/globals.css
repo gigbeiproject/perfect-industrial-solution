@@ -2,25 +2,107 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1d24;
+
+  --color-primary: #e31e24;
+  --color-primary-dark: #b8181d;
+  --color-primary-light: #fdeaea;
+
+  --color-dark: #0c111d;
+  --color-dark-2: #131a2b;
+  --color-dark-3: #1c2439;
+
+  --color-gray-light: #f5f6f8;
+  --color-gray-border: #e5e7eb;
+  --color-gray-muted: #6b7280;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-brand: var(--color-primary);
+  --color-brand-dark: var(--color-primary-dark);
+  --color-brand-light: var(--color-primary-light);
+
+  --color-ink: var(--color-dark);
+  --color-ink-2: var(--color-dark-2);
+  --color-ink-3: var(--color-dark-3);
+
+  --color-surface: var(--color-gray-light);
+  --color-border-muted: var(--color-gray-border);
+  --color-muted: var(--color-gray-muted);
+
+  --font-sans: var(--font-body);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-py {
+    @apply py-14 md:py-20;
+  }
+
+  .eyebrow {
+    @apply text-brand text-xs md:text-sm font-bold tracking-[0.15em] uppercase;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-outline-dark,
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-brand text-white hover:bg-brand-dark;
+  }
+
+  .btn-outline-dark {
+    @apply border border-white/30 text-white hover:bg-white hover:text-ink;
+  }
+
+  .btn-outline {
+    @apply border border-ink/20 text-ink hover:border-brand hover:text-brand;
+  }
+
+  .card-shadow {
+    @apply shadow-[0_4px_24px_rgba(15,23,42,0.06)];
+  }
+
+  .reveal {
+    animation: reveal-up 0.6s ease both;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.7s ease both;
 }
