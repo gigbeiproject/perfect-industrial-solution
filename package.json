@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "cloudinary": "^2.10.1",
     "jose": "^6.2.10",
     "lucide-react": "^1.33.0",
     "mysql2": "^3.23.4",

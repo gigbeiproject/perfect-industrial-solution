@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { query, queryOne } from "@/lib/db";
 import { requireAdmin } from "@/lib/api-auth";
 import { slugify } from "@/lib/utils";
-import { destroyImage } from "@/lib/cloudinary";
+import { destroyImage } from "@/lib/uploads";
 
 export async function GET(request, { params }) {
   const { id } = await params;

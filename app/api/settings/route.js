@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { query, queryOne } from "@/lib/db";
 import { requireAdmin } from "@/lib/api-auth";
-import { destroyImage } from "@/lib/cloudinary";
+import { destroyImage } from "@/lib/uploads";
 
 export async function GET() {
   const { unauthorized } = await requireAdmin();
